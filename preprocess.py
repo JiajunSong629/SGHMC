@@ -14,7 +14,7 @@ def create_batch( dataset, batch_size, doshuffle=True, random_seed=42):
     
 
     Optional Parameters:
-    --------------------
+    -------
     doshuffle: boolean
         if shffule the dataset, default set to True
     
@@ -23,9 +23,9 @@ def create_batch( dataset, batch_size, doshuffle=True, random_seed=42):
 
 
     Return
-    ---------
+    -------
     dataset: 3-d array, shape = (batch_size, n_params, n_batches)
-        dataset separated into batches, ith batch: dataset[:, :, i]
+        dataset separated into batches, ith batch is dataset[:, :, i]
     
     n_batches: int
         the number of batches created within the dataset

@@ -1,5 +1,4 @@
 import numpy as np
-import numpy.linalg as la
 from preprocess import create_batch
 
 
@@ -15,7 +14,7 @@ def sghmc(gradU, dataset, batch_size, start_states, alpha=None, eta=None, n_epoc
     --------
     gradU : callable
         gradient of the posterior probability with respect to the parameter
-        vector
+        vector, `gradU(params, data, scale)`
     
     dataset: 2-d array, shape = (n_samples, n_features)
         define the dataset for the problem
@@ -48,7 +47,7 @@ def sghmc(gradU, dataset, batch_size, start_states, alpha=None, eta=None, n_epoc
     Return
     -------
     proposal_samples: 2-d array, shape = (n_epochs - n_burn, n_params)
-        the parameter vector obtained from SGHMC sampler in the target posterior distribution
+        the parameter vector samples obtained by SGHMC following the target posterior distribution
     '''
     
     RSTATE = np.random.RandomState(int(random_seed))
@@ -56,25 +55,31 @@ def sghmc(gradU, dataset, batch_size, start_states, alpha=None, eta=None, n_epoc
     n_samples = dataset.shape[0]
     n_params = start_states.shape[0]
     
+    ## placeholder for proposal_samples
     proposal_samples = np.zeros((n_epochs, n_params))
     proposal_samples[0] = start_states
     
-    alpha = 0.1
-    eta = 2 * 0.01 / n_samples
+    ## hyperparameter
+    ## details about tunning please refer to report chapter 4
+    alpha = 0.1 if alpha is None else alpha
+    eta = 2 * 0.01 / n_samples if eta is None else eta
     bhat = 0
-    Sigma = la.cholesky(2 * (alpha-bhat) * eta * np.eye(n_params))
+    Sigma = np.linalg.cholesky(2 * (alpha-bhat) * eta * np.eye(n_params))
     
+    ## data
     minibatch_data, n_batches = create_batch(dataset, batch_size)
     
+
     for i in range(n_epochs-1):
         cur_states = proposal_samples[i]
         momentum = np.sqrt(eta) * RSTATE.randn(n_params)
         
         for j in range(n_batches):
             cur_states = cur_states + momentum
-            gradU_batch = gradU(cur_states, minibatch_data[:,:,j], n_samples, batch_size)
+            gradU_batch = gradU(cur_states, minibatch_data[:,:,j], n_samples/batch_size)
             momentum = (1-alpha) * momentum - eta * gradU_batch.flatten() \
                                             + np.dot(Sigma, RSTATE.randn(n_params))
+        
         proposal_samples[i+1] = cur_states
     
     return proposal_samples[n_burn: , :]
