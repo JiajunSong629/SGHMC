@@ -37,7 +37,7 @@ def create_batch( dataset, batch_size, doshuffle=True, random_seed=42):
     n_samples, n_params = dataset.shape
     if n_samples % batch_size != 0:
         print ('%d data will be dropped during batching' % (dataset.shape[0] % batch_size))
-    batch_sample_size = int(dataset.shape[0] / batch_size * batch_size)
+    batch_sample_size = int(dataset.shape[0] // batch_size * batch_size)
     n_batches = int(dataset.shape[0]) // batch_size
 
     if doshuffle:

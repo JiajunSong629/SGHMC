@@ -1,5 +1,5 @@
 import numpy as np
-from preprocess import create_batch
+from .preprocess import create_batch
 
 def sghmc(gradU, dataset, batch_size, start_states, alpha=None, eta=None, n_epochs=500, n_burn=50, random_seed=42):
     '''
@@ -52,8 +52,6 @@ def sghmc(gradU, dataset, batch_size, start_states, alpha=None, eta=None, n_epoc
     # check some options
     assert batch_size >= 1, 'batch size has to be >= 1'
     assert n_burn >= 0, 'n_burn has to be >= 0'
-    assert alpha >= 0, 'momentum decay has to be >= 0'
-    assert alpha <= 1, 'momentum decay has to be <= 1'
 
     ## random state
     RSTATE = np.random.RandomState(int(random_seed))
@@ -70,6 +68,9 @@ def sghmc(gradU, dataset, batch_size, start_states, alpha=None, eta=None, n_epoc
     ## hyperparameter
     ## please refer to report chapter 4 for details about tunning
     alpha = 0.1 if alpha is None else alpha
+    assert alpha >= 0, 'momentum decay has to be >= 0'
+    assert alpha <= 1, 'momentum decay has to be <= 1'
+    
     eta = 2 * 0.01 / n_samples if eta is None else eta
     bhat = 0
     Sigma = np.linalg.cholesky(2 * (alpha-bhat) * eta * np.eye(n_params))

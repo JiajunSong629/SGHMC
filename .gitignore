@@ -1,3 +1,6 @@
 __pycache__/
 .sghmc/
 .vscode/
+*.egg-info
+dist/
+build/
