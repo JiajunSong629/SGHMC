@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sghmc-2song",
-    version="0.0.1",
+    version="0.0.2",
     author="Jiajun Song; Yiping Song",
     author_email="jiajun.song@duke.edu",
     description="A package for SGHMC, STA663 Final Project",
@@ -17,9 +17,6 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-    ],
-    install_requires=[
-          'numpy',
     ],
     python_requires='>=3.6',
 )

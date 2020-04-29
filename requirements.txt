@@ -1,2 +1,12 @@
 autograd
-corner
+numpy
+theano
+pymc3==3.8
+seaborn==0.9.0
+matplotlib
+pystan
+cython
+numba
+cppimport
+theano
+statsmodels==0.11.0

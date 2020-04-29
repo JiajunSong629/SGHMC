@@ -14,6 +14,7 @@ def U(theta, x, scale):
 
 gradU = jacobian(U, argnum=0)
 
+print ("Calculating gradient...")
 
 ## data
 N = 1000
@@ -28,8 +29,13 @@ for i in range(N):
     else:
         X[i] = np.random.randn(1) + theta2
 
-
 ## test
 from sghmc import sghmc
+
+print ("Loading sghmc package...")
+
+print ("Sampling...")
+
 samples = sghmc(gradU, X, 100, np.array([.0, .0]))
+
 print ("Looks good to me.")
