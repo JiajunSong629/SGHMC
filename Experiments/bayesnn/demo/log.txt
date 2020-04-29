@@ -1,0 +1,10 @@
+[0] train-err:0.116080 train-nlik:0.484682 valid-err:0.113100 valid-nlik:0.480259 test-err:0.110800 test-nlik:0.459388
+[1] train-err:0.076520 train-nlik:0.269800 valid-err:0.077900 valid-nlik:0.281185 test-err:0.073100 test-nlik:0.259968
+[2] train-err:0.057620 train-nlik:0.196627 valid-err:0.061200 valid-nlik:0.214121 test-err:0.059100 test-nlik:0.204638
+[3] train-err:0.053640 train-nlik:0.174489 valid-err:0.055900 valid-nlik:0.198294 test-err:0.057400 test-nlik:0.188973
+[4] train-err:0.048200 train-nlik:0.155730 valid-err:0.054400 valid-nlik:0.183845 test-err:0.052700 test-nlik:0.177340
+[5] train-err:0.043120 train-nlik:0.142629 valid-err:0.047900 valid-nlik:0.172963 test-err:0.047800 test-nlik:0.159794
+[6] train-err:0.039440 train-nlik:0.129974 valid-err:0.048900 valid-nlik:0.162542 test-err:0.045700 test-nlik:0.155485
+[7] train-err:0.045720 train-nlik:0.142240 valid-err:0.052400 valid-nlik:0.186552 test-err:0.048000 test-nlik:0.158877
+[8] train-err:0.037280 train-nlik:0.117526 valid-err:0.045000 valid-nlik:0.156464 test-err:0.042100 test-nlik:0.138899
+[9] train-err:0.038940 train-nlik:0.124639 valid-err:0.049900 valid-nlik:0.165866 test-err:0.045500 test-nlik:0.143021
