@@ -35,9 +35,6 @@ Here is a brief overview of the repo.
 ### To use the package
 
 ```bash
-python3 -m venv .sghmc
-source .sghmc/bin/activate
-python -m pip install --upgrade pip wheel
 pip install -i https://test.pypi.org/simple/ sghmc-2song
 ```
 
