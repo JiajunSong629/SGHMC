@@ -63,3 +63,10 @@ pip list
 ```bash
 python -m ipykernel install --user --name=.sghmc
 ```
+
+- Add the dependencies to compile C++
+
+```bash
+cd Notebooks/
+git clone https://gitlab.com/libeigen/eigen.git
+```
