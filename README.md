@@ -11,17 +11,17 @@ Here is a brief overview of the repo.
 ```bash
 .
 ├── README.md                       <-- This instructions file
-├── doc
+├── reports
 │   ├── report_2song.pdf            <-- our final report
 |   └── 1402.4102.pdf               <-- Chen et.al 2014, original paper
 ├── sghmc                           <-- sghmc package source code
 │   ├── __init__.py    
 │   ├── preprocess.py               <-- data preprocess
 |   └── sghmc.py                    <-- sghmc sampler
-├── Experiments    
+├── experiments    
 │   ├── Figure_*.ipynb              <-- figures 1-5 in experiments
 │   └── bayesnn                     <-- figure 6, bayes neural network
-├── Notebooks    
+├── notebooks    
 │   ├── eigen/                      <-- dependencies for optimization
 │   ├── Optimization_demo.ipynb     <-- optimization work
 │   └── Comparative_analysis.ipynb  <-- comparative analysis work
@@ -67,6 +67,6 @@ python -m ipykernel install --user --name=.sghmc
 - Add the dependencies to compile C++
 
 ```bash
-cd Notebooks/
+cd notebooks/
 git clone https://gitlab.com/libeigen/eigen.git
 ```
