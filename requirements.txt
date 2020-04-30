@@ -11,4 +11,6 @@ numba
 cppimport
 theano
 statsmodels==0.11.0
-sphinx
+sphinx>=1.4
+ipykernel
+nbsphinx
