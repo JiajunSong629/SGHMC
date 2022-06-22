@@ -1,5 +1,5 @@
 autograd
-numpy==1.18.1
+numpy==1.22.0
 theano
 pymc3==3.8
 seaborn==0.9.0
